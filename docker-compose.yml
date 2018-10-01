@@ -1,0 +1,24 @@
+---
+version: "2"
+services:
+
+  gatsby:
+    build: gatsby/
+    ports:
+      - "8999:8000"
+    volumes:
+      - ./gatsby/.ssh:/root/.ssh
+      - ./gatsby/.gitconfig:/root/.gitconfig
+      - ./gatsby/config.tmp:/root/config.tmp
+      - ./gatsby/package.tmp:/root/package.tmp
+      - ./gatsby/new_content:/root/content
+      - ./shared:/root/gatsby_projects
+    environment:
+      - TARGET_GIT_REPO_NAME=quix-docs-test
+      - TARGET_GIT_REPO_ORG=wix-incubator
+      - TEMPLATE_GIT_REPO=git@github.com:wix-incubator/oss-gatsby-v2-documentation-portal-draft.git
+      - DOC_FOLDER=doc_gatsby_v2
+      - TWITTER_ACCOUNT=svetlana_apr
+      - GITHUB_ACCOUNT=svitlanako
+
+    

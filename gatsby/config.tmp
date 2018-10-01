@@ -1,0 +1,36 @@
+const base = {
+  name: 'Gatsby Starter Kit',
+  url: 'https://github.com/${TARGET_GIT_REPO_ORG}/${TARGET_GIT_REPO_NAME}'
+};
+
+const social = {
+  github: '${GITHUB_ACCOUNT}',
+  twitter: '${TWITTER_ACCOUNT}'
+}
+
+const config = {
+  /* meta tags */
+  siteTitle: `${base.name} - a series of GatsbyJS starters`,
+  siteTitlePostfix: ` - ${base.name}`,
+  siteDescription: `${
+    base.name
+  } is a series starters: Minimal, Equipped, Themed, Website, Blog.`,
+  siteImage: 'preview.jpg',
+  siteLanguage: 'en',
+
+  /* site header */
+  headerTitle: `${base.name}`,
+  headerSubTitle: 'a series of starters for GatsbyJS',
+
+  /* url */
+  siteUrl: base.url,
+  // pathPrefix: '',
+
+  /* social */
+  gitUrl: `http://github.com/${social.github}`,
+  twitterUrl: `http://twitter.com/${social.twitter}`,
+
+  pathPrefix: "/${TARGET_GIT_REPO_NAME}" // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
+};
+
+module.exports = config;
