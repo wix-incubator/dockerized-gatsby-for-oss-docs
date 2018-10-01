@@ -44,6 +44,10 @@ rm ./src/content/meta/categories.js
 
 cp /root/content/categories.js ./src/content/meta
 
+git add .
+git commit -m "Autocommit `date -u +'%Y-%m-%dT%H:%M:%SZ'`"
+git push
+
 gatsby build --prefix-paths
 
 gh-pages -d public
