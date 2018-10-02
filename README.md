@@ -25,6 +25,31 @@ provide your `.gitconfig`
 $ cp ~/.gitconfig ./gatsby/.gitconfig
 ```
 
+## Prepare the doc content
+
+### Concepts
+
+Articles are stored in *.md files. Using categories, you group articles into sections, e.g. the articles you'd like to appear in the Getting Srtarted section should start with the following block:
+
+```
+---
+title: <Articel title>  
+categories: ['get-started'] 
+---
+```
+where the <Articel title> is a placeholder for the actual title.
+  
+The list of categories is defined in the new_content/categories.js file. `name` is what the category is referred to in the articles. `icon` and `label` is shown in the sidebar with table of contents.  
+
+! [Title](./images/title.png)
+
+! [Categories](./images/categories.png)
+
+
+### How to
+
+Put the *.md files into the ./new_content/docs, and ensure that every file has a title and the category defined. Update the categories.js file to list only the categories you would like to publish.
+
 ## RUN
 ```
 $ docker-compose up
@@ -32,9 +57,9 @@ $ docker-compose up
 
 ## USE
 
-By default, the content that is provided in the new_content folder is published to GitHub Pages automatically.
+By default, the content that is provided in the ./new_content folder is published to GitHub Pages automatically.
 
-To debug, uncomment the lines in the ./run.sh file and use the commands below:
+To debug, run `docker-compose down`, uncomment the lines in the ./run.sh file, run `docker-compose build` and then `docker-compose up`. Now you can use the following commands to control gatsby inside the docker-container:
 
 ### Preview
 To preview the doc website,run:
@@ -49,6 +74,7 @@ Open http://localhost:8999/ in browser.
 
 ### Update
 To edit/create the docs and improve the website, update the files in the ./shared folder.
+Note: The *new_content* folder has already beed used to update the content in the *./shared* folder at this point. No chages to the new_content will take effect unless you run `docker-compose down && docker-compose build && docker-compose up` again.
 
 ### Save
 To save the updates, run:
