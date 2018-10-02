@@ -32,7 +32,7 @@ $ docker-compose up
 
 ## USE
 
-By default, the content that is provided in the new_content folder is published to GitHub Pages automatically. 
+By default, the content that is provided in the new_content folder is published to GitHub Pages automatically.
 
 To debug, uncomment the lines in the ./run.sh file and use the commands below:
 
@@ -40,7 +40,7 @@ To debug, uncomment the lines in the ./run.sh file and use the commands below:
 To preview the doc website,run:
 
 ```
-docker exec -ti <containerID> bash
+docker exec -ti dockerized-gatsby-for-oss-docs_gatsby_1 bash
 cd /root/gatsby_projects/${REPO_FOLDER}
 gastby develop
 ```
@@ -54,7 +54,7 @@ To edit/create the docs and improve the website, update the files in the ./share
 To save the updates, run:
 
 ```
-docker exec -ti <containerID> bash
+docker exec -ti dockerized-gatsby-for-oss-docs_gatsby_1 bash
 cd /root/gatsby_projects/${REPO_FOLDER}
 git add *
 git commit -m "<Your commit message. Describe the changes to the content and the website>"
@@ -65,7 +65,7 @@ git push
 To publish the website on github.io, run:
 
 ```
-docker exec -ti <containerID> bash
+docker exec -ti dockerized-gatsby-for-oss-docs_gatsby_1 bash
 cd /root/gatsby_projects/${REPO_FOLDER}/${DOC_FOLDER}
 npm run build:gh
 ```
