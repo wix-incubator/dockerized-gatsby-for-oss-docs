@@ -42,8 +42,14 @@ where the <Articel title> is a placeholder for the actual title.
 The list of categories is defined in the new_content/categories.js file. `name` is what the category is referred to in the articles. `icon` and `label` is shown in the sidebar with table of contents.  
 
 ! [Title](./doc_images/title.png)
+<p align="left">
+  <img src="./doc_images/title.png" title="hover text">
+</p>
 
 ! [Categories](./doc_images/categories.png)
+<p align="left">
+  <img src="./doc_images/categories.png" alt="">
+</p>
 
 
 ### How to
