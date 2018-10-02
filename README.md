@@ -32,11 +32,23 @@ $ docker-compose up
 
 ## USE
 
+By default, the content that is provided in the new_content folder is published to GitHub Pages automatically. 
+
+To debug, uncomment the lines in the ./run.sh file and use the commands below:
+
 ### Preview
-To preview the doc website, open in browser http://localhost:8999/
+To preview the doc website,run:
+
+```
+docker exec -ti <containerID> bash
+cd /root/gatsby_projects/${REPO_FOLDER}
+gastby develop
+```
+
+Open http://localhost:8999/ in browser.
 
 ### Update
-To edit/create the docs and improve the website, update the files in ./shared folder.
+To edit/create the docs and improve the website, update the files in the ./shared folder.
 
 ### Save
 To save the updates, run:
@@ -55,7 +67,6 @@ To publish the website on github.io, run:
 ```
 docker exec -ti <containerID> bash
 cd /root/gatsby_projects/${REPO_FOLDER}/${DOC_FOLDER}
-
 npm run build:gh
 ```
 

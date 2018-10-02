@@ -23,13 +23,11 @@ yarn --version
 gatsby --version
 gh-pages --version
 
+rm -rf ${DOC_FOLDER}
+
 gatsby new ${DOC_FOLDER} ${TEMPLATE_GIT_REPO}
 
 cd ${DOC_FOLDER}
-
-pwd
-
-ls ../../../
 
 envsubst < "../../../config.tmp" > "./src/content/meta/config.js"
 envsubst < "../../../package.tmp" > "package.json"
@@ -44,9 +42,11 @@ rm ./src/content/meta/categories.js
 
 cp /root/content/categories.js ./src/content/meta
 
-git add .
-git commit -m "Autocommit `date -u +'%Y-%m-%dT%H:%M:%SZ'`"
-git push
+if ! git diff-index --quiet HEAD --; then
+    git add .
+    git commit -m "Autocommit `date -u +'%Y-%m-%dT%H:%M:%SZ'`"
+    git push
+fi
 
 gatsby build --prefix-paths
 
